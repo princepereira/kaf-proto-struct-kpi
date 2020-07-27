@@ -1,0 +1,27 @@
+
+syntax = "proto3";
+
+package pbproto;
+
+enum KpiType{
+  CPUInfo = 0;
+  TempInfo = 1;
+  RamInfo = 2;
+}
+
+message AdditionalMsg {
+  int32 instance_id = 1;
+  string instance_name = 2;
+  float util = 3;
+}
+
+message Kpi {
+  int32 resource_id = 1;
+  int32 parent_id = 2;
+  KpiType kpi_type = 3;
+  float raised_ts = 4;
+  float reported_ts = 5;
+  string resource_type = 6;
+  AdditionalMsg additional_message = 7;
+}
+
